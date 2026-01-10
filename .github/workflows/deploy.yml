@@ -1,0 +1,33 @@
+name: Deploy CV site
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to CT103
+        run: |
+          set -e
+
+          TS="$(date +%Y%m%d-%H%M%S)"
+          BASE="/opt/static-sites/dev.destroyer369.com"
+          REL="$BASE/releases/$TS"
+
+          ssh -i /opt/ghrunner/.ssh/id_ed25519_ct103 \
+              deploysite@10.10.10.20 "mkdir -p $REL"
+
+          scp -i /opt/ghrunner/.ssh/id_ed25519_ct103 \
+              -r ./* \
+              deploysite@10.10.10.20:"$REL/"
+
+          ssh -i /opt/ghrunner/.ssh/id_ed25519_ct103 \
+              deploysite@10.10.10.20 "
+                ln -sfn $REL $BASE/current &&
+                test -f $BASE/current/index.html
+              "
