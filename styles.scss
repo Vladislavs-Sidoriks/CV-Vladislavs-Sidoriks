@@ -120,6 +120,15 @@ pre {
         margin-bottom: 10px;
       }
 
+      h3 {
+        font-size: 14px;
+        margin: 12px 0 4px;
+      }
+
+      h3 + ul {
+        margin: 0 0 8px;
+      }
+
       ul {
         list-style: none;
         padding-left: 0;

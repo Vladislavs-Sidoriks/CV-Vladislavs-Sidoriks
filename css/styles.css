@@ -99,6 +99,13 @@ pre {
   padding-bottom: 5px;
   margin-bottom: 10px;
 }
+.cv__sidebar section h3 {
+  font-size: 14px;
+  margin: 12px 0 4px;
+}
+.cv__sidebar section h3 + ul {
+  margin: 0 0 8px;
+}
 .cv__sidebar section ul {
   list-style: none;
   padding-left: 0;
