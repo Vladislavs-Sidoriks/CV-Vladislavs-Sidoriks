@@ -221,23 +221,171 @@ pre {
 }
 
 @media print {
-  .cover-letter {
-    break-after: page;
-    box-shadow: none;
+  @page {
+    size: A4;
+    margin: 0;
   }
+
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+
+  html,
+  body {
+    background: #fff;
+  }
+
+  .cover-letter {
+    max-width: none;
+    margin: 0;
+    padding: 16mm 18mm;
+    border-radius: 0;
+    border-top: 6mm solid #394f68;
+    box-shadow: none;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    break-after: page;
+  }
+
+  .cover-letter__title {
+    font-size: 15pt;
+    margin-bottom: 6mm;
+  }
+
+  .cover-letter p {
+    margin: 0 0 3.5mm;
+  }
+
+  .cover-letter__signature {
+    margin-top: 6mm !important;
+  }
+
+  .cv {
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    min-height: calc(2 * 297mm - 1mm);
+  }
+
   .cv__body {
-    grid-template-columns: 1fr 2fr !important;
+    flex: 1;
   }
-  .cv__sidebar {
-    padding: 25px !important;
-    padding-top: 0px !important;
+
+  .cv__header {
+    padding: 8mm 10mm;
+    break-inside: avoid;
   }
+
+  .cv__header h1 {
+    font-size: 20pt;
+  }
+
+  .cv__header .cv__title {
+    font-size: 11pt;
+    margin: 2mm 0 0;
+  }
+
+  .cv__header .cv__contacts ul li {
+    font-size: 9pt;
+    margin-bottom: 1mm;
+  }
+
+  .cv__body {
+    grid-template-columns: 34% 1fr !important;
+    gap: 0;
+  }
+
+  .cv__sidebar,
   .cv__main {
-    padding: 30px 40px !important;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .cv__sidebar {
+    padding: 6mm 7mm !important;
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+
+  .cv__sidebar section {
+    margin-bottom: 5mm;
+  }
+
+  .cv__sidebar section h2 {
+    font-size: 11pt;
+    margin: 0 0 3mm;
+    break-after: avoid;
+  }
+
+  .cv__sidebar section h3 {
+    font-size: 9.5pt;
+    margin: 3mm 0 1mm;
+    break-after: avoid;
+  }
+
+  .cv__sidebar section ul {
+    margin: 0;
+    break-inside: avoid;
+  }
+
+  .cv__sidebar section ul li {
+    font-size: 9pt;
+    margin-bottom: 1mm;
+  }
+
+  .cv__sidebar p {
+    margin: 0 0 2mm;
+  }
+
+  .cv__photo {
+    width: 100%;
+    margin: 0 0 3mm;
+  }
+
+  .cv__main {
+    padding: 6mm 10mm !important;
+    font-size: 9.5pt;
+    line-height: 1.45;
+  }
+
+  .cv__main section {
+    margin-bottom: 5mm;
+  }
+
+  .cv__main section h2 {
+    font-size: 12pt;
+    margin: 0 0 3mm;
+    break-after: avoid;
+  }
+
+  .cv__main p {
+    margin: 0;
+  }
+
+  .cv__main .job {
+    margin-bottom: 4mm;
+    break-inside: avoid;
+  }
+
+  .cv__main .job h3 {
+    font-size: 10.5pt;
+  }
+
+  .cv__main .job time {
+    font-size: 8.5pt;
+    margin-bottom: 1mm;
+  }
+
+  .cv__main .job ul li {
+    font-size: 9.5pt;
+    margin-bottom: 1mm;
+  }
+
+  .cv__footer {
+    display: none;
   }
 }
 @media (max-width: 992px) {
