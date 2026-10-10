@@ -7,7 +7,7 @@
 body {
   font-family: var(--font-main);
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
   color: #333;
   background: #f5f5f5;
@@ -192,7 +192,39 @@ pre {
   text-decoration: underline;
 }
 
+.cover-letter {
+  max-width: 1240px;
+  box-sizing: border-box;
+  margin: 20px auto;
+  padding: 30px 40px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border-top: 4px solid #394f68;
+  line-height: 1.6;
+}
+.cover-letter__title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+  color: #394f68;
+  font-size: 22px;
+  margin-top: 0;
+}
+.cover-letter p {
+  margin: 0 0 14px;
+}
+.cover-letter__signature {
+  margin-top: 24px !important;
+  font-weight: 600;
+}
+
 @media print {
+  .cover-letter {
+    break-after: page;
+    box-shadow: none;
+  }
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -209,6 +241,10 @@ pre {
   }
 }
 @media (max-width: 992px) {
+  .cover-letter {
+    padding: 20px;
+  }
+
   .cv__body {
     grid-template-columns: 1fr;
   }
